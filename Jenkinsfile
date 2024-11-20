@@ -12,7 +12,7 @@ pipeline {
 
                     if (triggerCommit) {
                         echo "Pipeline triggered by commit: ${triggerCommit.msg}"
-                        docker.build('eatherv/some', './')
+                        // docker.build('eatherv/some', './')
                     } else {
                         echo "No relevant commit message found. Skipping build."
                         currentBuild.result = 'NOT_BUILT'
