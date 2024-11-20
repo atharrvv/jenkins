@@ -8,7 +8,7 @@ pipeline {
                     def changes = currentBuild.changeSets.collectMany { it.items }
 
                     // Check if any commit contains the keyword '[trigger]'
-                    def triggerCommit = changes.find { it.msg.contains('[trigger]') }
+                    def triggerCommit = changes.find { it.msg.contains('[name]') }
 
                     if (triggerCommit) {
                         echo "Pipeline triggered by commit: ${triggerCommit.msg}"
