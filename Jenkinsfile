@@ -4,7 +4,14 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build('eatherv/main', './')
+                    if (currentBuild.changeSets.any { change ->
+                        change.msg.contains("[name]")
+                    }) {
+                        docker.build('eatherv', './')
+                    } else {
+                        echo "No trigger keyword found."
+                        currentBuild.result = 'NOT_BUILT'
+                    }
                 }
             }
         }
