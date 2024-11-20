@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Build triggered by a tag"
+                script {
+                    docker.build('eatherv/main', './')
+                }
             }
         }
     }
