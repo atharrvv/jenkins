@@ -11,3 +11,4 @@ make some noise
 main
 asdf
 sdf
+trigger
